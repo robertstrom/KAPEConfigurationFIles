@@ -52,21 +52,21 @@ $KAPEDestinationFiles = "$env:USERPROFILE\Desktop\KAPE_v1.0.0.0"
 
 $CurrentSysinternalsFiles = "Z:\HostDownloads\IRTools\Sysinternals"
 
-$KAPESysinternalsDestionationFIles = "C:\Users\rstrom\Desktop\KAPE_v1.0.0.0\Modules\bin"
+$KAPESysinternalsDestinationFIles = "C:\Users\rstrom\Desktop\KAPE_v1.0.0.0\Modules\bin"
 
 $CurrEvtxECmdVer = (get-item $CurrentKAPEZimmermanFiles\EvtxExplorer\EvtxECmd.exe).Versioninfo.FileVersion
 
 $KAPEDirEvtxECmdVer = (get-item $KAPEDestinationFiles\Modules\Bin\EvtxECmd\EvtxECmd.exe).Versioninfo.FileVersion
 
-if ($CurrEvtxECmdVer -gt $KAPEDirEvtxECmdVer) { Copy-Item -Path $CurrentKAPEZimmermanFiles\EvtxExplorer\EvtxECmd.exe -Destination $KAPEDestinationFiles\Modules\Bin\EvtxECmd\EvtxECmd.exe -force }
+if ($CurrEvtxECmdVer -gt $KAPEDirEvtxECmdVer) { Copy-Item -Path $CurrentKAPEZimmermanFiles\EvtxExplorer\EvtxECmd.exe -Destination $KAPEDestinationFiles\Modules\Bin\EvtxECmd\EvtxECmd.exe -Force }
 
 ## Perform a sync of the EvtxECmd Map files
 
-pushd $KAPEDestinationFiles\modules\bin\EvtxECmd
+Push-Location $KAPEDestinationFiles\modules\bin\EvtxECmd
 
 .\EvtxECmd.exe --sync
 
-popd
+Pop-Location
 
 ## $CurrBstringsVer = (get-item $CurrentKAPEZimmermanFiles\bstrings.exe).Versioninfo.FileVersion
 
